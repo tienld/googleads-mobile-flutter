@@ -261,7 +261,7 @@
     _dictionaryDescription = responseInfo.dictionaryRepresentation.description;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
-    _credentialsDescription = responseInfo.credentials.description;
+//    _credentialsDescription = responseInfo.credentials.description;
 #pragma clang diagnostic pop
     _adUnitMapping = [[NSMutableDictionary alloc] init];
     for (NSString *key in responseInfo.adUnitMapping) {
@@ -272,6 +272,7 @@
         [_adUnitMapping setValue:@"Unrecognized credential" forKey:key];
       }
     }
+      _credentialsDescription = _adUnitMapping.description;
     _error = responseInfo.error;
   }
   return self;
